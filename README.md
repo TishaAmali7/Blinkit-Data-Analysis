@@ -80,14 +80,16 @@ Query Explanations
 This query aims to transform the blinkit_data table to display total sales (Total_Sales) for each combination of Outlet_Location_Type and Item_Fat_Content. The result will show Outlet_Location_Type as rows and Item_Fat_Content categories ("Low Fat" and "Regular") as columns. If there are no sales for a particular combination, the query will display 0 instead of NULL.
 
 E. Total Sales by Outlet Establishment
-SELECT Outlet_Establishment_Year, CAST(SUM(Total_Sales) AS DECIMAL(10,2)) AS Total_Sales
+       
+       SELECT Outlet_Establishment_Year, CAST(SUM(Total_Sales) AS DECIMAL(10,2)) AS Total_Sales
        FROM blinkit_data
        GROUP BY Outlet_Establishment_Year
        ORDER BY Outlet_Establishment_Year
  
 
 F. Percentage of Sales by Outlet Size
-SELECT 
+       
+       SELECT 
        Outlet_Size, 
        CAST(SUM(Total_Sales) AS DECIMAL(10,2)) AS Total_Sales,
        CAST((SUM(Total_Sales) * 100.0 / SUM(SUM(Total_Sales)) OVER()) AS DECIMAL(10,2)) AS Sales_Percentage
@@ -96,13 +98,15 @@ SELECT
        ORDER BY Total_Sales DESC;
 
 G. Sales by Outlet Location
-SELECT Outlet_Location_Type, CAST(SUM(Total_Sales) AS DECIMAL(10,2)) AS Total_Sales
+       
+       SELECT Outlet_Location_Type, CAST(SUM(Total_Sales) AS DECIMAL(10,2)) AS Total_Sales
        FROM blinkit_data
        GROUP BY Outlet_Location_Type
        ORDER BY Total_Sales DESC
  
 H. All Metrics by Outlet Type:
-SELECT Outlet_Type, 
+       
+       SELECT Outlet_Type, 
        CAST(SUM(Total_Sales) AS DECIMAL(10,2)) AS Total_Sales,
 		CAST(AVG(Total_Sales) AS DECIMAL(10,0)) AS Avg_Sales,
 		COUNT(*) AS No_Of_Items,
