@@ -26,8 +26,8 @@ A. KPI’s
        FROM blinkit_data;
  
 2. AVERAGE SALES:The average revenue per sale.
-SELECT CAST(AVG(Total_Sales) AS INT) AS Avg_Sales
-FROM blinkit_data;
+       SELECT CAST(AVG(Total_Sales) AS INT) AS Avg_Sales
+       FROM blinkit_data;
  
 3. NO OF ITEMS: The total count of different items sold.
 SELECT COUNT(*) AS No_of_Orders
