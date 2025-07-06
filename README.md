@@ -21,8 +21,9 @@ SET Item_Fat_Content =
 A. KPI’s
 
 1. The overall revenue generated from all items sold.
-SELECT CAST(SUM(Total_Sales) / 1000000.0 AS DECIMAL(10,2)) AS Total_Sales_Million
-FROM blinkit_data;
+
+       SELECT CAST(SUM(Total_Sales) / 1000000.0 AS DECIMAL(10,2)) AS Total_Sales_Million
+       FROM blinkit_data;
  
 2. AVERAGE SALES:The average revenue per sale.
 SELECT CAST(AVG(Total_Sales) AS INT) AS Avg_Sales
